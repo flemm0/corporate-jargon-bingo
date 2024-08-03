@@ -235,6 +235,21 @@ function calculateWinner(squares, size) {
       return true;
     }
   }
+
+  // Check columns
+  for (let i = 0; i < size; i++) {
+    const colIndices = Array.from({ length: size }, (_, j) => j * size + i);
+    if (isLineComplete(colIndices)) {
+      return true;
+    }
+  }
+
+  // Check diagonals
+  const diag1Indices = Array.from({ length: size }, (_, i) => i * size + i);
+  const diag2Indices = Array.from({ length: size }, (_, i) => (i + 1) * size - i - 1);
+  if (isLineComplete(diag1Indices) || isLineComplete(diag2Indices)) {
+    return true;
+  }
 }
 
 
