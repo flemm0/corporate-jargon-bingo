@@ -115,3 +115,22 @@ h1 {
     1px -1px 0 #000,  
     -1px 1px 0 #000; /* Outline color */
 }
+
+.timer {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  display: grid;
+}
+
+.timer-button-group {
+  font-family: 'Inter', sans-serif;
+  display: grid;
+  gap: 10px; /* Space between buttons */
+  grid-auto-flow: column; /* Place buttons in a row */
+  padding: 6px 12px;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+}

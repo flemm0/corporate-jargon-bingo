@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { unmountComponentAtNode } from 'react-dom';
 
@@ -51,6 +51,83 @@ function BingoHeader() {
     </div>
   );
 }
+
+
+function Timer() {
+  const [timer, setTimer] = useState("00:00:00");
+  const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const startTime = useRef(null);
+  const elapsedTime = useRef(0);
+  const intervalRef = useRef(null);
+
+
+  useEffect(() => {
+    if (isActive && !isPaused) {
+      startTime.current = Date.now() - elapsedTime.current;
+      intervalRef.current = setInterval(updateTimer, 1000);
+    } else if (isPaused) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    } else {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [isActive, isPaused]);
+
+  const updateTimer = () => {
+    const now = Date.now();
+    const total = now - startTime.current;
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / 1000 / 60 / 60));
+
+    setTimer(
+      (hours > 9 ? hours : "0" + hours) + ":" +
+      (minutes > 9 ? minutes : "0" + minutes) + ":" +
+      (seconds > 9 ? seconds : "0" + seconds)
+    );
+  };
+
+  const handleStart = () => {
+    if (!isActive) {
+      setIsActive(true);
+      setIsPaused(false);
+    } else if (isPaused) {
+      startTime.current = Date.now() - elapsedTime.current;
+      setIsPaused(false);
+    }
+  };
+
+  const handlePause = () => {
+    if (isActive && !isPaused) {
+      elapsedTime.current = Date.now() - startTime.current;
+      setIsPaused(true);
+    }
+  };
+
+  const handleReset = () => {
+    setTimer("00:00:00");
+    setIsActive(false);
+    setIsPaused(false);
+    elapsedTime.current = 0;
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  };
+
+  return (
+    <>
+      <div className="timer">{timer}</div>
+      <div className="timer-button-group">
+        <button onClick={handleStart} disabled={isActive && !isPaused}>{isActive ? "Resume" : "Start"}</button>
+        <button onClick={handlePause} disabled={!isActive || isPaused}>Pause</button>
+        <button onClick={handleReset}>Reset</button>
+      </div>
+    </>
+  );
+}
+
 
 
 function Square({ value, clickedByDefault, onClick }) {
@@ -165,6 +242,7 @@ export default function App() {
   return (
     <>
       <h1>Corporate Lingo<br></br>Bingo</h1>
+      <Timer />
       <BingoHeader />
       <Board size={size} />
     </>
