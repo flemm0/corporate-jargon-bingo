@@ -53,11 +53,11 @@ function BingoHeader() {
 }
 
 
-function Square({ value }) {
-  const [clicked, setClicked] = useState(false);
+function Square({ value, clickedByDefault }) {
+  const [clicked, setClicked] = useState(clickedByDefault);
 
   function handleClick() {
-    setClicked(true);
+    setClicked(!clicked);
   }
 
   return (
