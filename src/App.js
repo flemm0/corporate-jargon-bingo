@@ -8,6 +8,7 @@ const size = 5;
 
 const corporatePhrases = [
   "above my paygrade",
+  "alignment",
   "action item",
   "back burner",
   "bandwidth",
@@ -16,10 +17,12 @@ const corporatePhrases = [
   "churn",
   "core competencies",
   "deep dive",
+  "disrupt",
   "deliverable",
   "drill down",
   "ducks in a row",
   "dumpster fire",
+  "EOD",
   "flesh out",
   "go to market",
   "hard stop",
