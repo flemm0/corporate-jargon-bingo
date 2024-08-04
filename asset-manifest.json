@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/corporate-jargon-bingo/static/css/main.a7b85da6.css",
+    "main.js": "/corporate-jargon-bingo/static/js/main.67ecff4d.js",
+    "static/js/453.3da00dc3.chunk.js": "/corporate-jargon-bingo/static/js/453.3da00dc3.chunk.js",
+    "index.html": "/corporate-jargon-bingo/index.html",
+    "main.a7b85da6.css.map": "/corporate-jargon-bingo/static/css/main.a7b85da6.css.map",
+    "main.67ecff4d.js.map": "/corporate-jargon-bingo/static/js/main.67ecff4d.js.map",
+    "453.3da00dc3.chunk.js.map": "/corporate-jargon-bingo/static/js/453.3da00dc3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7b85da6.css",
+    "static/js/main.67ecff4d.js"
+  ]
+}
