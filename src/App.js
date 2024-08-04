@@ -1,42 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
-import { unmountComponentAtNode } from 'react-dom';
-
 
 
 const size = 5;
 
 const corporatePhrases = [
-  "above my paygrade",
-  "alignment",
-  "action item",
-  "back burner",
-  "bandwidth",
-  "break down silos",
-  "buy-in",
-  "churn",
-  "core competencies",
-  "deep dive",
-  "disrupt",
-  "deliverable",
-  "drill down",
-  "ducks in a row",
-  "dumpster fire",
-  "EOD",
-  "flesh out",
-  "go to market",
-  "hard stop",
-  "in the weeds",
-  "circle back",
-  "low hanging fruit",
-  "move the needle",
-  "take this offline",
-  "ping",
-  "pivot",
-  "sidebar",
-  "slide deck",
-  "touch base",
-  "trim the fat"
+  "above my paygrade", "alignment", "action item", "baked in", "balls in the air", "back burner", "bandwidth", "break down silos", 
+  "buy-in", "bleeding edge", "boil the ocean", "bring to the table", "circle back", "churn", "core competencies", "deep dive", 
+  "disrupt", "deliverable", "drill down", "ducks in a row", "dumpster fire", "EOD", "flesh out", "go to market", 
+  "hard stop", "headwinds", "herding cats", "in the weeds", "low hanging fruit", "leverage", "jump the shark", "move the goalposts",
+  "ninja", "move the needle", "take this offline", "ping", "pivot", "pain point", "push the envelope", "reinvent the wheel",
+  "run up the flagpole", "sidebar", "synergy", "slide deck", "touch base", "trim the fat", "traction", "silver bullet"
 ];
 
 
@@ -256,7 +230,7 @@ function calculateWinner(squares, size) {
 export default function App() {
   return (
     <>
-      <h1>Corporate Lingo<br></br>Bingo</h1>
+      <h1>Corporate Jargon<br></br>Bingo</h1>
       <Timer />
       <BingoHeader />
       <Board size={size} />
